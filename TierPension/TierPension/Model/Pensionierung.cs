@@ -15,36 +15,101 @@ namespace TierPension.Model
         public Pensionierung(Guid id, string kundenID, string tierID, DateTime beginn, DateTime ende, bool writeToFile = false) 
         {
             ID = id.ToString();
-            KundeID = kundenID;
-            TierID = tierID;
-            Beginn = beginn;
-            Ende = ende;
+            _kundeID = kundenID;
+            _tierID = tierID;
+            _beginn = beginn;
+            _ende = ende;
             if (writeToFile)
             {
                 UpdatePensionierung();
             }
         }
 
+        #region Backing-Fields
+
+        private string _kundeID;
+        private string _tierID;
+        private string? _rechnungID;
+        private DateTime _beginn;
+        private DateTime _ende;
+        private bool _abgeschlossen = false;
+
+        #endregion
+
+        #region Properties
+
         [JsonProperty("id")]
         public string ID { get; init; }
 
         [JsonProperty("kunde")]
-        public string KundeID { get; set; }
+        public string KundeID
+        {
+            get { return _kundeID; }
+            set {
+                _kundeID = value; 
+                UpdatePensionierung();
+            }
+        }
 
         [JsonProperty("tier")]
-        public string TierID { get; set; }
+        public string TierID
+        {
+            get { return _tierID; }
+            set 
+            {
+                _tierID = value;
+                UpdatePensionierung();
+            }
+        }
 
         [JsonProperty("rechnung")]
-        public Rechnung? Rechnung { get; set; }
+        public string? RechnungID
+        {
+            get { return _rechnungID; }
+            set 
+            {
+                _rechnungID = value;
+                UpdatePensionierung();
+            }
+        }
 
         [JsonProperty("beginn")]
-        public DateTime Beginn { get; set; }
+        public DateTime Beginn
+        {
+            get { return _beginn; }
+            set 
+            {
+                _beginn = value;
+                UpdatePensionierung();
+            }
+        }
 
         [JsonProperty("ende")]
-        public DateTime Ende { get; set; }
+        public DateTime Ende
+        {
+            get { return _ende; }
+            set 
+            {
+                _ende = value;
+                UpdatePensionierung();
+            }
+        }
 
         [JsonProperty("abgeschlossen")]
-        public bool Abgeschlossen { get; set; } = false;
+        public bool Abgeschlossen
+        {
+            get { return _abgeschlossen; }
+            set
+            {
+                if (_abgeschlossen != value)
+                {
+                    _abgeschlossen = value;
+                    UpdatePensionierung();
+                }
+            }
+        }
+
+        #endregion
 
         /// <summary>
         /// Diese Methode aktualisiert die JSON Datei im Hintergrund oder erstellt eine neue wenn es keine passende gibt.

@@ -96,8 +96,7 @@ namespace TierPension.ViewModel
                 t = new Papagei(Guid.NewGuid(), Name, Enum.Parse<Tierart>(SelectedTierart), Enum.Parse<Futter>(SelectedFutter), false, true);
             }
 
-            Pension.Instance.AktuellerKunde.TiereID.Add(t);
-            Pension.Instance.AktuellerKunde.UpdateKunde();
+            Pension.Instance.AktuellerKunde.TiereID.Add(t.ID);
             MessageBox.Show($"Du hast {t.Name} erfolgreich hinzugefügt. Vielen Dank!", "Hinzufügen erfolgreich", MessageBoxButton.OK);
             _window.Close();
         }

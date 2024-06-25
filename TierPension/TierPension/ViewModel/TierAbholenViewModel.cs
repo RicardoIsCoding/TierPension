@@ -25,17 +25,22 @@ namespace TierPension.ViewModel
             AbholenOderLoeschenCommand = new RelayCommand(AbholenOderLoeschen);
             AbbrechenCommand = new RelayCommand(Abbrechen);
 
-            TiereDesKunden = new ObservableCollection<Tier>(Pension.Instance.AktuellerKunde.TiereID);
+            TiereDesKunden = new ObservableCollection<Tier>(TierHelper.GetAllTierByID(Pension.Instance.AktuellerKunde.TiereID));
             _allePensionierungen = PensionierungHelper.GetAllPensionierungenOfCurrentUser();
             TiereDesKunden = GetAllePensioniertenTiere();
         }
 
+        #region Methods
+
         private ObservableCollection<Tier> GetAllePensioniertenTiere()
         {
             ObservableCollection<Tier> list = new ObservableCollection<Tier>();
-            foreach (var pension in _allePensionierungen)
+            foreach (var pensionierung in _allePensionierungen)
             {
-                list.Add(pension.TierID);
+                if (!pensionierung.Abgeschlossen)
+                {
+                    list.Add(TierHelper.GetTierByID(pensionierung.TierID));
+                }
             }
             return list;
         }
@@ -55,13 +60,20 @@ namespace TierPension.ViewModel
             if (SelectedTier.IstPensioniert) // Tier "abholen"
             {
                 SelectedTier.IstPensioniert = false;
-                _allePensionierungen.Where(w => w.TierID.ID == SelectedTier.ID).ToList().ForEach(p => p.Abgeschlossen = true);
+                _allePensionierungen.Where(w => w.TierID == SelectedTier.ID).ToList().ForEach(p => p.Abgeschlossen = true);
             }
-            else
+            else //Pensionierung loeschen
             {
-                string pID = _allePensionierungen.Where(w => w.TierID.ID == SelectedTier.ID).Select(s => s.ID).FirstOrDefault();
-                PensionierungHelper.DeletePensionierung(pID);
-                MessageBox.Show($"Die Pensionierun für {SelectedTier.Name} wurde erfolgreich gelöscht!", "Löschen erfolgreich", MessageBoxButton.OK);
+                string pID = _allePensionierungen.Where(w => w.TierID == SelectedTier.ID).Select(s => s.ID).FirstOrDefault();
+                bool success = PensionierungHelper.DeletePensionierung(pID);
+                if (success) 
+                {
+                    MessageBox.Show($"Die Pensionierun für {SelectedTier.Name} wurde erfolgreich gelöscht!", "Löschen erfolgreich", MessageBoxButton.OK);
+                }
+                else
+                {
+                    throw new Exception("Pensionierung konnte nicht gelöscht werden!");
+                }
             }
         }
 
@@ -70,7 +82,19 @@ namespace TierPension.ViewModel
             throw new NotImplementedException();
         }
 
+        #endregion
+
+        #region Backing-Fields
+
         private ObservableCollection<Tier> _tiereDesKunden;
+        private Tier? _selectedTier;
+        private Window _thisWindow;
+        private List<Pensionierung> _allePensionierungen;
+        private string _errorMessage;
+
+        #endregion
+
+        #region Properties
 
         public ObservableCollection<Tier> TiereDesKunden
         {
@@ -81,9 +105,6 @@ namespace TierPension.ViewModel
                 OnPropertyChanged(nameof(TiereDesKunden));
             }
         }
-
-        private Tier? _selectedTier;
-
         public Tier? SelectedTier
         {
             get { return _selectedTier; }
@@ -93,30 +114,28 @@ namespace TierPension.ViewModel
                 OnPropertyChanged(nameof(SelectedTier));
             }
         }
-
         public string AbgabeDatum { get; set; } = "Hallo";
         public string AbholDatum { get; set; }
-
-        private string _errorMessage;
-
         public string ErrorMessage
         {
             get { return _errorMessage; }
             set { _errorMessage = value; }
         }
 
+        #endregion
 
-        private List<Pensionierung> _allePensionierungen;
+        #region Commands, Events
+
         public ICommand RechnungCommand { get; set; }
         public ICommand AbholenOderLoeschenCommand { get; set; }
         public ICommand AbbrechenCommand { get; set; }
 
-
-        private Window _thisWindow;
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        #endregion
     }
 }

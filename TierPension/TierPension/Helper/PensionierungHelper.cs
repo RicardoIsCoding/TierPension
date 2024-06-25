@@ -25,7 +25,7 @@ namespace TierPension.Helper
             {
                 var jsonInhalt = File.ReadAllText(datei);
                 var pensionierung = JsonConvert.DeserializeObject<Pensionierung>(jsonInhalt);
-                if (pensionierung != null && pensionierung.KundeID.ID == Pension.Instance.AktuellerKunde.ID)
+                if (pensionierung != null && pensionierung.KundeID == Pension.Instance.AktuellerKunde.ID)
                 {
                     pensionierungsListe.Add(pensionierung);
                 }
@@ -34,9 +34,33 @@ namespace TierPension.Helper
             return pensionierungsListe;
         }
 
-        public static void DeletePensionierung(string id)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>true -> deletion successfull, false otherwise</returns>
+        public static bool DeletePensionierung(string id)
         {
+            string filePath = Path.Combine(Config.FilePathPensionierungDaten, id + ".JSON");
 
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    File.Delete(filePath);
+                    Console.WriteLine($"Datei {filePath} wurde erfolgreich gelöscht.");
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Fehler beim Löschen der Datei {filePath}: {ex.Message}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Datei {filePath} wurde nicht gefunden.");
+            }
+            return false;
         }
     }
 }

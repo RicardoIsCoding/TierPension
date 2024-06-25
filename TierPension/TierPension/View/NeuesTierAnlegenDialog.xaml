@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TierPension.View"
         xmlns:VM="clr-namespace:TierPension.ViewModel"
         mc:Ignorable="d"
-        Title="NeuesTierAnlegenDialog" 
+        Title="Neues Tier anlegen" 
         Width="Auto" Height="Auto">
         
     <Grid Margin="20">

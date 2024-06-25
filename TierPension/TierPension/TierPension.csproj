@@ -14,6 +14,7 @@
     <None Remove="Images\Background.webp" />
     <None Remove="Images\bg.png" />
     <None Remove="Images\bg.png.png" />
+    <None Remove="Images\Icon.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,7 @@
     <Resource Include="Images\abholen.jpg" />
     <Resource Include="Images\Background.webp" />
     <Resource Include="Images\bg.png" />
+    <Resource Include="Images\Icon.jpg" />
   </ItemGroup>
 
 </Project>

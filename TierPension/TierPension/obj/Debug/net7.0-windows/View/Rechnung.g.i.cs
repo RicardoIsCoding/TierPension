@@ -53,7 +53,7 @@ namespace TierPension.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TierPension;V1.0.0.0;component/view/rechnung.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TierPension;component/view/rechnung.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\Rechnung.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

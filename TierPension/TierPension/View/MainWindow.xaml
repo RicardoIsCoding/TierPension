@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Width="{x:Static SystemParameters.PrimaryScreenWidth}"
         Height="{x:Static SystemParameters.PrimaryScreenHeight}"
-        Title="MainWindow"
+        Title="TierPension"
         >
 
     <Window.Background>

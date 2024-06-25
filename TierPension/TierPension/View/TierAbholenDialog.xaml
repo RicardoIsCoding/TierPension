@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TierPension.View"
         mc:Ignorable="d"
-        Title="TierAbholenDialog">
+        Title="Tier-Abholen">
     <Grid Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MinWidth="180"/>
