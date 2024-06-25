@@ -1,0 +1,65 @@
+﻿<Page x:Class="TierPension.View.Registrieren"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TierPension.View"
+      xmlns:helper="clr-namespace:TierPension.Helper"
+      mc:Ignorable="d" 
+      Background="AliceBlue"
+      Width="{x:Static SystemParameters.PrimaryScreenWidth}"
+      Height="{x:Static SystemParameters.PrimaryScreenHeight}"
+      Title="Registrieren"
+      >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel     Grid.Row="0" Grid.Column="0">
+            <Button     Content="Bild hochladen" Command="{Binding UploadImageCommand}"/>
+            <Image      Source="{Binding ProfileImagePath, Mode=TwoWay}" Height="100" Width="100"/>
+        </StackPanel>
+
+        <TextBlock      Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Registrieren-Seite"/>
+        <TextBlock      Grid.Row="1" Grid.Column="0" Text="Vorname*:"/>
+        <TextBox        Grid.Row="1" Grid.Column="1" Text="{Binding Vorname}"/>
+        <TextBlock      Grid.Row="1" Grid.Column="2" Text="Passwort*:"/>
+        <PasswordBox    Grid.Row="1" Grid.Column="3" PasswordChanged="PasswordBox_PasswordChanged" helper:PasswordHelper.Attach="True"
+                        helper:PasswordHelper.Password="{Binding Passwort, ElementName=plain, Mode=TwoWay}"/>
+        <TextBlock      Grid.Row="2" Grid.Column="0" Text="Nachname*"/>
+        <TextBox        Grid.Row="2" Grid.Column="1" Text="{Binding Nachname}" />
+        <TextBlock      Grid.Row="2" Grid.Column="2" Text="Passwort wdh*.:"/>
+        <PasswordBox    Grid.Row="2" Grid.Column="3" Password="" PasswordChanged="PasswordBox_PasswordChanged_Wdh"/>
+        <TextBlock      Grid.Row="3" Grid.Column="0" Text="E-Mail Adresse*:"/>
+        <TextBox        Grid.Row="3" Grid.Column="1" Text="{Binding EMail}" />
+        <TextBlock      Grid.Row="3" Grid.Column="2" Text="Nutzername*:"/>
+        <TextBox        Grid.Row="3" Grid.Column="3" Text="{Binding Username}" />
+        <TextBlock      Grid.Row="4" Grid.Column="2" Text="{Binding}"/>
+
+        <Button         Grid.Row="7" Grid.Column="0" Width="50" Height="50" Margin="20" Command="{Binding ZurueckCommand}" Background="DarkRed">
+            <Image Source="..\Icons\exit.png" Width="30" Height="30"/>
+        </Button>
+        <Button         Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="50 30" Content="registrieren" Command="{Binding RegistrierenCommand}" Background="Green" x:Name="register" />
+
+        <TextBlock      Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Text="Vervollständigen sie die Angaben (* sind zwingend notwendig)" FontSize="16" Visibility="{Binding ErrorMessageVisibility}"/>
+    </Grid>
+</Page>

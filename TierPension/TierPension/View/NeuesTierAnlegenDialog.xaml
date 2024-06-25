@@ -1,0 +1,65 @@
+﻿<Window x:Class="TierPension.View.NeuesTierAnlegenDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TierPension.View"
+        xmlns:VM="clr-namespace:TierPension.ViewModel"
+        mc:Ignorable="d"
+        Title="NeuesTierAnlegenDialog" 
+        Width="Auto" Height="Auto">
+        
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="180"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+        <!-- Tierinformationen -->
+        <TextBlock  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Tier-Informationen" HorizontalAlignment="Center" Style="{StaticResource H1}"/>
+        <TextBlock  Grid.Row="1" Grid.Column="0" Text="Name*"/>
+        <TextBox    Grid.Row="1" Grid.Column="1" Text="{Binding Name}" MinWidth="200"/>
+        <TextBlock  Grid.Row="2" Grid.Column="0" Text="Tierart*"/>
+        <ComboBox   Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Tierart}" SelectedItem="{Binding SelectedTierart}"/>
+        <TextBlock  Grid.Row="3" Grid.Column="0" Text="Futter*"/>
+        <ComboBox   Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Futter}" SelectedItem="{Binding SelectedFutter}"/>
+        
+        <!-- Error Messages -->
+        <TextBlock  Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ErrorMessage}" Foreground="Red"/>
+
+        <!-- Speichern Abbrechen -->
+        <Grid Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <Button Style="{StaticResource AbbrechenButtonStyle}" Background="LightGray" Command="{Binding AbbrechenCommand}"/>
+                <TextBlock Text="Abbrechen" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <Button Style="{StaticResource SaveButtonStyle}" Background="LightGreen" Command="{Binding SpeichernCommand}"/>
+                <TextBlock Text="Tier anlegen" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+
+</Window>

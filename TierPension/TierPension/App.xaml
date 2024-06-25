@@ -1,0 +1,16 @@
+﻿<Application x:Class="TierPension.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TierPension"
+             StartupUri="View\MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Global/BorderStyle.xaml"/>
+                <ResourceDictionary Source="Global/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="Global/TextBoxStyle.xaml"/>
+                <ResourceDictionary Source="Global/TextBlockStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

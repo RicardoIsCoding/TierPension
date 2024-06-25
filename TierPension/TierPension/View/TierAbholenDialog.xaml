@@ -1,0 +1,75 @@
+﻿<Window x:Class="TierPension.View.TierAbholenDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TierPension.View"
+        mc:Ignorable="d"
+        Title="TierAbholenDialog">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="180"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+        <!-- Überschrift -->
+        <TextBlock  Grid.Row="0" Grid.Column="0"  Text="Tier-Abholen" HorizontalAlignment="Center" Style="{StaticResource H1}"/>
+
+        <!-- Tier Auswaehlen -->
+        <TextBlock  Grid.Row="1" Grid.Column="0"  Text="Wähle eines deiner pensionierten Tiere aus!" HorizontalAlignment="Center"/>
+        <ComboBox Grid.Row="2" Grid.Column="0" Margin="10 0"
+          ItemsSource="{Binding TiereDesKunden}"
+          SelectedItem="{Binding SelectedTier}"
+          x:Name="TierComboBox"
+          SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+
+        <TextBlock  Grid.Row="3" Grid.Column="0" Text="Ausgewähltes Tier:" HorizontalAlignment="Center"/>
+        <TextBlock  Grid.Row="4" Grid.Column="0" Text="{Binding SelectedTier.Name}" HorizontalAlignment="Center" FontSize="24"/>
+
+
+        <!-- Error Messages -->
+        <TextBlock  Grid.Row="5" Grid.Column="0"  Text="{Binding ErrorMessage}" Foreground="Red"/>
+
+        <StackPanel Grid.Row="6" Grid.Column="0" >
+            <Button Style="{StaticResource RechnungButtonStyle}" Command="{Binding RechnungCommand}"/>
+            <TextBlock Text="Rechnung anzeigen" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Speichern Abbrechen -->
+        <Grid Grid.Row="11" Grid.Column="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <Button Style="{StaticResource AbbrechenButtonStyle}" Background="LightGray" Command="{Binding AbbrechenCommand}"/>
+                <TextBlock Text="Abbrechen" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <Button Style="{StaticResource CheckButtonStyle}" Background="LightGreen" Command="{Binding AbholenOderLoeschenCommand}" x:Name="abholenButton"/>
+                <TextBlock x:Name="buttonText" Text="abholen" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>

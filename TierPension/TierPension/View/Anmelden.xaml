@@ -1,0 +1,40 @@
+﻿<Page x:Class="TierPension.View.Anmelden"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TierPension.View"
+      xmlns:helper="clr-namespace:TierPension.Helper"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="800"
+      Title="Anmelden"
+      Background="AliceBlue">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock      Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="Willkommen zurück!" FontSize="48"/>
+        <TextBlock      Grid.Row="2" Grid.Column="1" Text="Benutzername" />
+        <TextBox        Grid.Row="3" Grid.Column="1" Text="{Binding Username}" Margin="10, 0"/>
+        
+        <TextBlock      Grid.Row="2" Grid.Column="2" Text="Passwort" />
+        <PasswordBox    Grid.Row="3" Grid.Column="2" PasswordChanged="PasswordBox_PasswordChanged" helper:PasswordHelper.Attach="True"/>
+
+        <Button         Grid.Row="5" Grid.Column="0" Margin="20 30" Content="zurück" Command="{Binding ZurueckCommand}" Background="DarkRed" />
+        <Button         Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="50 30" Content="anmelden" Command="{Binding AnmeldenCommand}" Background="Green" x:Name="register" />
+
+    </Grid>
+</Page>

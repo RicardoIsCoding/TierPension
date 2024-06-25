@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="View\Anmelden.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Home.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\NeuesTierAnlegenDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Rechnung.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Register.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Registrieren.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Start.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\TierAbholenDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\TierPensionierenDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Global\BorderStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Global\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Global\Styles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Global\TextBlockStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Global\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Anmelden.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Home.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\NeuesTierAnlegenDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Rechnung.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Register.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Registrieren.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Start.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\TierAbholenDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\TierPensionierenDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

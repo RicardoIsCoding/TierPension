@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\exit.png" />
+    <None Remove="Images\abgeben.jpg" />
+    <None Remove="Images\abholen.jpg" />
+    <None Remove="Images\Background.webp" />
+    <None Remove="Images\bg.png" />
+    <None Remove="Images\bg.png.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\exit.png" />
+    <Resource Include="Images\abgeben.jpg" />
+    <Resource Include="Images\abholen.jpg" />
+    <Resource Include="Images\Background.webp" />
+    <Resource Include="Images\bg.png" />
+  </ItemGroup>
+
+</Project>
