@@ -77,7 +77,7 @@ namespace TierPension.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TierPension;component/view/tierabholendialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TierPension;V1.0.0.0;component/view/tierabholendialog.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\TierAbholenDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

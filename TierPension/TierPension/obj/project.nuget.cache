@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rRKA76R5muPV9vJr8zzI/BLdsA2zwEWK6Y74uzflD9V14Ns7MecoapAKLQWRqWBqD1Ed3iRZ/+BFrvwEVYLOoQ==",
+  "dgSpecHash": "CVxEAbqTJK0vkwAo+1jkbN6pZ6Co4Ue4Kbs/yqu4X9RA6rYnAi3H4OaqUa7SiCKIYY6NsNbO7Qixe0Nx5TL21A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ricardo.Reindl\\Documents\\RE\\TierPension_2406\\TierPension\\TierPension.csproj",
+  "projectFilePath": "C:\\Users\\Ricardo.Reindl\\Documents\\RE\\Repo\\TierPension\\TierPension\\TierPension.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ricardo.Reindl\\.nuget\\packages\\mahapps.metro.iconpacks\\5.0.0\\mahapps.metro.iconpacks.5.0.0.nupkg.sha512",
     "C:\\Users\\Ricardo.Reindl\\.nuget\\packages\\mahapps.metro.iconpacks.bootstrapicons\\5.0.0\\mahapps.metro.iconpacks.bootstrapicons.5.0.0.nupkg.sha512",

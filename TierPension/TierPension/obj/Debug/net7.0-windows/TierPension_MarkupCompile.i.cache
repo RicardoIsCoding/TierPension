@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ricardo.Reindl\Documents\RE\TierPension_2406\TierPension\obj\Debug\net7.0-windows\
+C:\Users\Ricardo.Reindl\Documents\RE\Repo\TierPension\TierPension\obj\Debug\net7.0-windows\
 TierPension
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\Ricardo.Reindl\Documents\RE\TierPension_2406\TierPension\App.xaml
+C:\Users\Ricardo.Reindl\Documents\RE\Repo\TierPension\TierPension\App.xaml
 16-877430655
 
 421966038739
 2371749803813
 Global\BorderStyle.xaml;Global\ButtonStyle.xaml;Global\Styles.xaml;Global\TextBlockStyle.xaml;Global\TextBoxStyle.xaml;View\Anmelden.xaml;View\Home.xaml;View\Login.xaml;View\MainWindow.xaml;View\NeuesTierAnlegenDialog.xaml;View\Rechnung.xaml;View\Register.xaml;View\Registrieren.xaml;View\Start.xaml;View\TierAbholenDialog.xaml;View\TierPensionierenDialog.xaml;
 
-True
+False
 
