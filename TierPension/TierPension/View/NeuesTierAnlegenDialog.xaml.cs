@@ -25,6 +25,7 @@ namespace TierPension.View
             InitializeComponent();
             NeuesTierAnlegenViewModel vm = new NeuesTierAnlegenViewModel(this);
             DataContext = vm;
+            this.Icon = new BitmapImage(new Uri("pack://application:,,,/Images/plus.png"));
         }
     }
 }

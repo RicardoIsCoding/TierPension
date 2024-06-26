@@ -27,7 +27,7 @@ namespace TierPension
             InitializeComponent();
             var navigationService = new Helper.NavigationService(this);
             DataContext = new MainWindowViewModel(navigationService);
-            this.Icon = new BitmapImage(new Uri("./Images/Icon.jpg"));
+            this.Icon = new BitmapImage(new Uri("pack://application:,,,/Images/Icon.png"));
         }
     }
 }

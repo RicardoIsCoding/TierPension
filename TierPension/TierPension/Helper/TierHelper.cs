@@ -36,7 +36,7 @@ namespace TierPension.Helper
             return gesuchtesTier;
         }
 
-        public static List<Tier>? GetAllTierByID(List<string> idList)
+        public static List<Tier> GetAllTierByID(List<string> idList)
         {
             if (idList == null || idList.Count == 0)
             {
